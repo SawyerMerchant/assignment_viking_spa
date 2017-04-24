@@ -15,13 +15,13 @@ VikingStore.config(function($stateProvider, $urlRouterProvider){
     .state('products.index', {
       url: "",
       templateUrl: "partials/productsIndex.html",
-      controller: "ProductsIndexCtrl"
+      controller: "productsIndexCtrl"
     })
 
     .state('products.show', {
       url: "/:productID",
       templateUrl: "partials/productsShow.html",
-      controller: "ProductsShowCtrl"
+      controller: "productsShowCtrl"
     });
 
 });
@@ -29,3 +29,13 @@ VikingStore.config(function($stateProvider, $urlRouterProvider){
 VikingStore.factory('_', ['$window', function($window) {
   return $window._;
 }]);
+
+// This is for error handling
+// It sets an event listener on the root scope from which all
+//    other $scopes descend
+//    and it outputs whatever loggable errors are happening
+//    when an error in ui-router states takes place
+// It should be availably by default, but it isn't.
+VikingStore.run(function($rootScope){
+  $rootScope.$on("$stateChangeError", console.log.bind(console));
+});

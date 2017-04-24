@@ -1,10 +1,12 @@
-VikingStore.factory('productServices', ['$http', '_', function($http, _){
+console.log("productsServices loaded");
+VikingStore.factory('productsService', ['_', '$q', function(_, $q){
   var _products = [];
   var _id = 1;
   var SEED_COUNT = 10;
 
-  var populateProducts = function() {
+  var _populateProducts = function() {
     for (var i = 0; i < SEED_COUNT; i++){
+      console.log("Making Products");
       _makeBikes();
       _makeTires();
       _makeSeats();
@@ -19,13 +21,14 @@ VikingStore.factory('productServices', ['$http', '_', function($http, _){
       material: faker.commerce.productMaterial(),
       description: faker.commerce.productAdjective(),
       text: faker.commerce.product(),
-      price: faker.commerc.price(),
-      image: faker.image.transport(),
+      price: faker.finance.amount(),
+      image: faker.random.image(),
       id: _id,
       category: 1,
     };
     _id++;
     _products.push(product);
+    console.log(product);
   };
 
   var _makeTires = function(){
@@ -35,8 +38,8 @@ VikingStore.factory('productServices', ['$http', '_', function($http, _){
       material: faker.commerce.productMaterial(),
       description: faker.commerce.productAdjective(),
       text: faker.commerce.product(),
-      price: faker.commerc.price(),
-      image: faker.image.transport(),
+      price: faker.finance.amount(),
+      image: faker.random.image(),
       id: _id,
       category: 2,
     };
@@ -51,8 +54,8 @@ VikingStore.factory('productServices', ['$http', '_', function($http, _){
       material: faker.commerce.productMaterial(),
       description: faker.commerce.productAdjective(),
       text: faker.commerce.product(),
-      price: faker.commerc.price(),
-      image: faker.image.transport(),
+      price: faker.finance.amount(),
+      image: faker.random.image(),
       id: _id,
       category: 3,
     };
@@ -67,13 +70,24 @@ VikingStore.factory('productServices', ['$http', '_', function($http, _){
       material: faker.commerce.productMaterial(),
       description: faker.commerce.productAdjective(),
       text: faker.commerce.product(),
-      price: faker.commerc.price(),
-      image: faker.image.transport(),
+      price: faker.finance.amount(),
+      image: faker.random.image(),
       id: _id,
       category: 4,
     };
     _id++;
     _products.push(product);
+  };
+
+  var getProducts = function(){
+    if (!_products.length){
+      _populateProducts();
+    }
+    return _products;
+  };
+
+  return {
+    getProducts: getProducts,
   };
 
 }]);

@@ -1,3 +1,4 @@
+console.log("categoriesService loaded");
 VikingStore.factory('categoriesService', ['productsService', function(productServices){
   var _categories = [];
   var _id = 1;
@@ -26,4 +27,16 @@ VikingStore.factory('categoriesService', ['productsService', function(productSer
       }
     ];
   };
+
+  var getCategories = function(){
+    if(!_categories.length){
+      _makeCategories();
+    }
+    return _categories;
+  };
+
+  return {
+    getCategories: getCategories,
+  };
+
 }]);
