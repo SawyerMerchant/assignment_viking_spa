@@ -1,15 +1,13 @@
 <div>
-  <div>
-    {{ product.title }}
-    {{ product.id }}
-  </div>
-  <div class="img-cell">
-    <div class="product-img" style="background-image: url({{product.image}}")>
-      <div class="product-price">
-        {{ product.price | currency }}
+  <a ui-sref="products.show({productID: product.id})">
+    <div class="img-cell">
+      <div class="product-img" style="background-image: url({{product.image}}")>
+        <div class="product-price">
+          {{ product.price | currency }}
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>
 <div>
   <!-- Product in template is: {{ product }} -->

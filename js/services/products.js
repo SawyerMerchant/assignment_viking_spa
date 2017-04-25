@@ -1,4 +1,4 @@
-console.log("productsServices loaded");
+console.log("productsService loaded");
 VikingStore.factory('productsService', ['_', '$q', function(_, $q){
   var _products = [];
   var _id = 1;
@@ -86,8 +86,22 @@ VikingStore.factory('productsService', ['_', '$q', function(_, $q){
     return _products;
   };
 
+  var find = function(id) {
+    _populateProducts();
+    // console.log("Inside of FIND id is:");
+    // console.log(id);
+    // console.log("_products are:");
+    // console.log(_products);
+    for (var i = 0; i < _products.length; i++){
+      if (_products[i].id == id){
+        return _products[i];
+      }
+    }
+  };
+
   return {
     getProducts: getProducts,
+    find: find,
   };
 
 }]);

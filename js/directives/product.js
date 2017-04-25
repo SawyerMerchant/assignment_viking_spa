@@ -5,6 +5,7 @@ VikingStore.directive('product', function() {
     restrict: 'E',
     scope: {
       product: '=',
+      find: '&',
     }
   };
 });
