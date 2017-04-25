@@ -1,9 +1,14 @@
 <div>
   <div>
-    <img id="" src="{{product.image}}">
+    {{ product.title }}
+    {{ product.id }}
   </div>
-  <div>
-    {{ product.price | currency }}
+  <div class="img-cell">
+    <div class="product-img" style="background-image: url({{product.image}}")>
+      <div class="product-price">
+        {{ product.price | currency }}
+      </div>
+    </div>
   </div>
 </div>
 <div>

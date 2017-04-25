@@ -28,7 +28,7 @@ VikingStore.factory('productsService', ['_', '$q', function(_, $q){
     };
     _id++;
     _products.push(product);
-    console.log(product);
+    // console.log(product);
   };
 
   var _makeTires = function(){

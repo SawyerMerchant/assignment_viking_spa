@@ -1,6 +1,7 @@
-<div>
+<select ng-model='FilteredCategory' ng-options='category.name for category in categories'></select>
+<div class="product-grid">
   <!-- Products in 'producsIndex' are:
   {{products}} -->
-  <product ng-repeat="product in products" product="product">
+  <product ng-repeat="product in products| categoryFilter: FilteredCategory" product="product">
   </product>
 </div>

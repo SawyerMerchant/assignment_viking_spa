@@ -8,24 +8,39 @@ VikingStore.factory('categoriesService', ['productsService', function(productSer
       {
         "id": 1,
         "name": "Bikes",
-        "productIDs": []
+        "productIDs": [1,3,5]
       },
       {
         "id": 2,
         "name": "Tires",
-        "productIDs": []
+        "productIDs": [2,4,6]
       },
       {
         "id": 3,
         "name": "Seats",
-        "productIDs": []
+        "productIDs": [7,9,11]
       },
       {
         "id": 4,
         "name": "Handlebars",
-        "productIDs": []
+        "productIDs": [8,10,12]
       }
     ];
+    categories.forEach(function(category){
+      _extend(category);
+    });
+    _categories = categories;
+  };
+
+  var _extend = function(category) {
+    category.products = function() {
+      var products = [];
+      this.productIDs.forEach(function(productId) {
+        var product = productService.find(productId);
+        products.push(product);
+      });
+      return products;
+    };
   };
 
   var getCategories = function(){
