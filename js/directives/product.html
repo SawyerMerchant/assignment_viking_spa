@@ -1,6 +1,9 @@
 <div>
+  <div class="img-cell">
+    {{ product.title }}
+  </div>
   <a ui-sref="products.show({productID: product.id})">
-    <div class="img-cell">
+    <div >
       <div class="product-img" style="background-image: url({{product.image}}")>
         <div class="product-price">
           {{ product.price | currency }}

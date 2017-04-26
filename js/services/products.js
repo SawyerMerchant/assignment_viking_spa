@@ -68,7 +68,7 @@ VikingStore.factory('productsService', ['_', '$q', function(_, $q){
       title: faker.commerce.productName(),
       color: faker.commerce.color(),
       material: faker.commerce.productMaterial(),
-      description: faker.commerce.productAdjective(),
+      description: faker.lorem.paragraph(),
       text: faker.commerce.product(),
       price: faker.finance.amount(),
       image: faker.random.image(),
