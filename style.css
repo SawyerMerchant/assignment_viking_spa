@@ -37,3 +37,26 @@ product {
   z-index: 1;
   position: relative;
 }
+
+footer {
+  width: 100%;
+  color: white;
+  background-color: black;
+  padding: 1em;
+}
+
+.contact {
+  width: 250px;
+  margin: auto;
+  display: block;
+}
+
+.contact-header {
+  text-align: center;
+  width: 100%;
+}
+
+.contact-data {
+  display: block;
+  margin: 1em;
+}
